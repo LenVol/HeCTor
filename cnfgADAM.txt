@@ -1,0 +1,8 @@
+nbPrimaries=1000000
+Phantom=../../ADAM_Exp/_LVOLL_60ML_2_0_B40F_0010/ROI/out/phantom.root
+RIFIFile=RifiExp/data_enSpecrum_C12_IES003.txt
+Angle=0
+OFILE=PaperFinal/ADAM_60ml_C12_Rifi_kb954_FWHM7_bs3
+A=12
+PosY=0
+PosZ=0

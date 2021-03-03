@@ -1,0 +1,43 @@
+/run/initialize
+# Create a scene handler and viewer for HepRep
+# /vis/open HepRepFile
+# Create a new empty scene
+#/vis/drawVolume worlds
+/vis/scene/create
+/vis/drawVolume worlds
+# Attach scene to scenehandler
+/vis/sceneHandler/attach
+# Execute the visualisation
+/vis/viewer/flush
+/vis/viewer/create
+# Add Trajectories
+#/vis/scene/add/trajectories
+#/vis/scene/add/hits
+#/vis/scene/add/axes 0 0 0 1 m
+#/tracking/storeTrajectory 1
+#/process/list
+#/vis/open OGL 800+600
+# Use this open statement to create an OpenGL view:
+#/vis/open OGLIX 600x600-0+0
+/vis/open OGLSQt
+/vis/ogl/set/displayListLimit 10000000
+/vis/viewer/zoom 5.
+#/vis/open DAWNFILE
+/vis/viewer/set/autoRefresh false
+#/vis/viewer/set/viewpointThetaPhi  90. 90.
+/vis/verbose warnings
+/vis/viewer/set/style wireframe
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+#/vis/modeling/trajectories/drawByParticleID-0/set proton green
+/vis/modeling/trajectories/drawByParticleID-0/set C12[0.0] blue
+#/vis/modeling/trajectories/drawByParticleID-0/set gamma yellow
+/vis/modeling/trajectories/drawByParticleID-0/set alpha red
+#/vis/filtering/trajectories/create/particleFilter
+#/vis/filtering/trajectories/particleFilter-0/add gamma
+#/vis/filtering/trajectories/particleFilter-0/add e+
+#/vis/filtering/trajectories/particleFilter-0/add proton
+# /vis/filtering/trajectories/particleFilter-0/add C12[0.0]
+/vis/scene/endOfEventAction accumulate
+# Run
+/run/beamOn 100

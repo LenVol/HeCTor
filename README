@@ -1,0 +1,24 @@
+Program to simualte experiments on a mixed/helium carbon beam. Hector for Helium/Carbon Treatment MonitOR (could also be Online Rangeverification)
+
+For simplicity the program is run sequentially for helium and carbon ions. 
+
+The program is compiled using the simple ./compile.sh provided
+
+To run the program you must enter the following command: 
+
+./bin/Linux-g++/Hector nbParticles Geometry RIFISpectrum Angle Outputname AnumberProjectile
+
+
+Where 
+
+nbParticles = primary ions to generate
+
+Geometry = either a) the relative path to the root file outputted when running python config.py <PathToCTScan>, the output is then found in <PathToCTscan>/out/phantom.root (I provided an example in ROI/out/phantom.root for ADAM with 0ml rectum inflation)
+
+	b) if the Geometry name does not contain .root the simulation defaults to the PMMA phantom
+
+RIFISpectrum = ripple fiilter energy spectrum .txt file. Found in Rifi/*.txt with separate spectra fro carbon and helium (IES001 is Lung, IES002 is the PMMA, IES003 is the ADAM phantoms)
+
+Outputffilename = path to and name of the outputfile without the file ending (".root" is added automatically)
+
+ANumberProjectile = either 4 for helium or 12 for carbon 
